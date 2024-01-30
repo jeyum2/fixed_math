@@ -211,6 +211,10 @@ public:
         return fixed_xtoi(data);
     }
 
+    fixed_point raw() {
+        return data;
+    }
+
 public:
     static const fixed_number max;
     static const fixed_number epsilon;
