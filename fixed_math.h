@@ -132,7 +132,12 @@ extern "C"
 
     CONSTEXPR int fixed_xtoi(fixed_point value)
     {
-        return value >> FIXED_FRACTION;
+        fixed_point result = value >> FIXED_FRACTION;
+        if(result < 0 && (value & fixed_fractional_mask) != 0)
+        {
+            result += 1;
+        }
+        return result;
     }
 
     CONSTEXPR double fixed_xtod(fixed_point value)
