@@ -83,9 +83,9 @@ fixed_point fixed_floor(fixed_point value)
 fixed_point fixed_ceil(fixed_point value)
 {
     fixed_point result = value & fixed_integer_mask;
-    if (result > 0 && fixed_frac(value) != 0)
+    if (fixed_frac(value) != 0)
     {
-        result += 1;
+        result += fixed_one;
     }
 
     return result;
